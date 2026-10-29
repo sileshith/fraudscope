@@ -1,0 +1,12 @@
+{
+  "cases": 80,
+  "graph_models": 4,
+  "raw_tolerance": 0.00002,
+  "calibrated_tolerance": 0.0002,
+  "max_active_error": 0,
+  "max_teacher_error": 1.1102230246251565e-16,
+  "max_graph_raw_error": 1.4876145026931908e-7,
+  "max_graph_calibrated_error": 0.0000015823422320846575,
+  "policy_disagreements": 0,
+  "status": "passed"
+}

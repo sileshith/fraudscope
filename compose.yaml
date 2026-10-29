@@ -1,0 +1,20 @@
+services:
+  scoring:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      FRAUDSCOPE_API_KEY: ${FRAUDSCOPE_API_KEY:?Set a random key of at least 24 characters}
+    volumes:
+      - scoring-state:/app/runtime
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+volumes:
+  scoring-state:
+

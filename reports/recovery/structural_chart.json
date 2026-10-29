@@ -1,0 +1,16 @@
+{
+  "source": "Existing editable presentation page_93baa70f70508191a202b5dfd855eccc, chart ch/o7yt83yp",
+  "scope": "Historical chart means across 3 seeds and 3 perturbation draws per condition. Raw three-seed perturbation files have not been recovered.",
+  "categories": [
+    "Delete 10%",
+    "Delete 30%",
+    "Rewire 10%",
+    "Rewire 30%"
+  ],
+  "threshold_flip_rates": [
+    0.0006768688462,
+    0.0019842652136,
+    0.000898597914,
+    0.0023809745722
+  ]
+}

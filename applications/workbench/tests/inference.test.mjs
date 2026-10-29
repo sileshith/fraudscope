@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import cases from '../model-data/parity-fixtures.json' with {type:'json'};
+import {encode,linearScore,graphScore,graphModes,activePolicy,extractFeatures} from '../lib/inference.mjs';
+const report={cases:cases.length,graph_models:4,raw_tolerance:0.00002,calibrated_tolerance:0.0002,max_active_error:0,max_teacher_error:0,max_graph_raw_error:0,max_graph_calibrated_error:0,policy_disagreements:0};
+test('exported Python preprocessing, logistic and all four GNNs match',()=>{
+ for(const c of cases){const x=encode(c.features);assert.ok(x.every((v,i)=>Math.abs(v-c.encoded[i])<0.0001));const a=linearScore(c.features),teacher=linearScore(c.features,true);report.max_active_error=Math.max(report.max_active_error,Math.abs(a.probability-c.active_probability));report.max_teacher_error=Math.max(report.max_teacher_error,Math.abs(teacher.raw-c.teacher_risk));assert.ok(report.max_active_error<1e-9);assert.ok(report.max_teacher_error<1e-9);if((a.probability>=activePolicy.threshold)!==(c.active_probability>=activePolicy.threshold))report.policy_disagreements++;
+  for(const mode of graphModes){const g=graphScore(c.encoded,c.neighbors,mode);report.max_graph_raw_error=Math.max(report.max_graph_raw_error,Math.abs(g.raw-c.graph_raw[mode]));report.max_graph_calibrated_error=Math.max(report.max_graph_calibrated_error,Math.abs(g.probability-c.graph_probability[mode]));assert.ok(report.max_graph_raw_error<report.raw_tolerance,JSON.stringify({mode,...report}));assert.ok(report.max_graph_calibrated_error<report.calibrated_tolerance,JSON.stringify({mode,...report}));}
+ }assert.equal(report.policy_disagreements,0);fs.writeFileSync('model-data/parity-report.json',JSON.stringify({...report,status:'passed'},null,2));
+});
+test('no-edge MLP ignores graph while graph model responds',()=>{const c=cases.find(c=>c.neighbors.some(n=>n.length));assert.equal(graphScore(c.encoded,c.neighbors,'no_edge_mlp').raw,graphScore(c.encoded,[[],[]],'no_edge_mlp').raw);assert.notEqual(graphScore(c.encoded,c.neighbors).raw,graphScore(c.encoded,[[],[]]).raw);});
+test('feature history excludes future, simultaneous and expired events',()=>{const e={event_time:7000000,account_id:'a',device_id:'d',amount:100,account_age_days:10,email_age_days:10,geo_distance_km:0,failed_logins_24h:0,cross_border:0,channel:'web',product:'retail',device_type:'desktop'};const history=[{...e,event_time:e.event_time-60,amount:50},{...e,event_time:e.event_time,amount:1},{...e,event_time:e.event_time+1,amount:1},{...e,event_time:e.event_time-7*86400,amount:1}];const f=extractFeatures(e,history);assert.equal(f.account_txn_7d,1);assert.equal(f.amount_ratio_7d,2);assert.equal(f.device_accounts_24h,1);});

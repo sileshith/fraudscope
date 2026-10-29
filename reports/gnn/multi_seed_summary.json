@@ -1,0 +1,93 @@
+{
+  "dataset": "synthetic",
+  "rows_per_seed": 60000,
+  "seeds": [
+    42,
+    73,
+    101
+  ],
+  "models": [
+    {
+      "model": "logistic",
+      "average_precision_mean": 0.45155875639493454,
+      "average_precision_std": 0.020631818108426923,
+      "roc_auc_mean": 0.8155631264418725,
+      "roc_auc_std": 0.010590800672787124,
+      "recall_at_5pct_mean": 0.47125707554197777,
+      "recall_at_5pct_std": 0.003637227480202584
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "average_precision_mean": 0.4854559535991667,
+      "average_precision_std": 0.023337393561496687,
+      "roc_auc_mean": 0.8519675219794256,
+      "roc_auc_std": 0.012501948036453383,
+      "recall_at_5pct_mean": 0.5068528899434993,
+      "recall_at_5pct_std": 0.008482309042836178
+    },
+    {
+      "model": "isolation_forest",
+      "average_precision_mean": 0.34220703305081157,
+      "average_precision_std": 0.014757092306218038,
+      "roc_auc_mean": 0.7907360832219479,
+      "roc_auc_std": 0.00799688785237198,
+      "recall_at_5pct_mean": 0.3447219906354741,
+      "recall_at_5pct_std": 0.006175340360023461
+    },
+    {
+      "model": "no_edge_mlp",
+      "average_precision_mean": 0.49424538239023175,
+      "average_precision_std": 0.026595076417864582,
+      "roc_auc_mean": 0.8460438185270887,
+      "roc_auc_std": 0.009585256066741902,
+      "recall_at_5pct_mean": 0.5283844249328561,
+      "recall_at_5pct_std": 0.00272457400542278
+    },
+    {
+      "model": "relational_sage",
+      "average_precision_mean": 0.4973951515791004,
+      "average_precision_std": 0.023522563536805978,
+      "roc_auc_mean": 0.8418513418791335,
+      "roc_auc_std": 0.009697511944861377,
+      "recall_at_5pct_mean": 0.5394992932555461,
+      "recall_at_5pct_std": 0.00822711497802094
+    },
+    {
+      "model": "temporal_attention",
+      "average_precision_mean": 0.4928787018833635,
+      "average_precision_std": 0.026838168281511036,
+      "roc_auc_mean": 0.8397286616602543,
+      "roc_auc_std": 0.00925126030802153,
+      "recall_at_5pct_mean": 0.5353843643640143,
+      "recall_at_5pct_std": 0.005866354690813049
+    },
+    {
+      "model": "risk_gated_attention",
+      "average_precision_mean": 0.4940896440212829,
+      "average_precision_std": 0.025102852201773444,
+      "roc_auc_mean": 0.8407390152523844,
+      "roc_auc_std": 0.008945666654338639,
+      "recall_at_5pct_mean": 0.5346652875108991,
+      "recall_at_5pct_std": 0.010570644347369765
+    }
+  ],
+  "selection_by_seed": [
+    {
+      "seed": 42,
+      "overall": "no_edge_mlp",
+      "graph": "temporal_attention"
+    },
+    {
+      "seed": 73,
+      "overall": "no_edge_mlp",
+      "graph": "temporal_attention"
+    },
+    {
+      "seed": 101,
+      "overall": "hist_gradient_boosting",
+      "graph": "temporal_attention"
+    }
+  ],
+  "real_ieee_status": "not_run",
+  "recovery_provenance": "Recovered from deployed model-data/evidence.json; original standalone report not recovered."
+}

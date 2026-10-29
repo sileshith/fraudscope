@@ -1,0 +1,9 @@
+{
+  "export_version": "2.0.0",
+  "source_data_sha256": "c55a5ec0ad17a0bcee82cdf5d6c400e611b853d60bcab416700c7829ac67df26",
+  "research_source_sha256": "2f616271776dbdb3c90ba61d2946c9031062d7cdfb0e684021dc256a8e19b98a",
+  "models_sha256": "170ac3c9c68a4f1e9362f8a3653fd7da3fa3671eabed285eb7f9fabde2f8aaba",
+  "parity_cases": 80,
+  "real_ieee_benchmark": "not_run",
+  "live_role": "logistic decisions; risk-gated GNN shadow"
+}

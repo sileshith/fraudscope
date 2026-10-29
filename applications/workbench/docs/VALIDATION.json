@@ -1,0 +1,18 @@
+{
+  "release": "2.0.0",
+  "application_tests_passed": 12,
+  "original_research_tests_passed": 50,
+  "independent_model_parity_cases": 80,
+  "persistent_raw_event_parity_cases": 48,
+  "typecheck": "passed",
+  "browser_preview": "Desktop sign-in boundary, research layout, model metric selector and structural perturbation selector verified. Authenticated user operations require hosted identity.",
+  "deployed_environment": "private synthetic reference",
+  "real_ieee_benchmark": "not_run",
+  "real_financial_production_approved": false,
+  "limits": [
+    "No target-scale load test",
+    "No external audit anchoring",
+    "No backup recovery drill",
+    "No real customer outcome validation"
+  ]
+}

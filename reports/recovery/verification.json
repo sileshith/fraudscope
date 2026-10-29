@@ -25,5 +25,25 @@
     "warnings": 2,
     "gnn_environment": "Linux CPU; not run locally"
   },
-  "original_library_archive_recovered": false
+  "original_library_archive_recovered": false,
+  "github_actions": {
+    "commit": "42ff5d592956e8d667739a8125826c04566bc454",
+    "run": "https://github.com/sileshith/fraudscope/actions/runs/40813309484",
+    "application": "success",
+    "research": "success: 41 passed, 1 skipped",
+    "graph": "success: 16 passed"
+  },
+  "fresh_clone": {
+    "matched_files": 213,
+    "frozen_install": "passed",
+    "application_tests": "12 passed",
+    "typescript": "passed",
+    "reviewer_tour": "passed"
+  },
+  "native_powerpoint": {
+    "opened": true,
+    "notes_present": true,
+    "quantitative_table_checked": true,
+    "pdf_export": "local printing export"
+  }
 }

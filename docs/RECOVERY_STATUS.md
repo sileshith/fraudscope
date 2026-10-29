@@ -35,3 +35,7 @@ Seera confirmed the existing portfolio's custom-domain configuration for hirpada
 ## Remaining recovery work
 
 Obtain the original FraudScope_Flagship_Project.zip, compare its source and outputs against this release, preserve any distinct later changes, and rerun affected checks before describing the complete original archive as reconciled. The full Linux GNN suite and original checkpoint replay still require their declared environment and artifacts.
+
+## Publication verification update
+
+Commit `42ff5d592956e8d667739a8125826c04566bc454` passed all three GitHub Actions jobs: application, research (41 passed, one PyTorch module skipped), and Linux graph (16 passed). The graph job covers seven graph-data checks plus nine neural checks. The initial fresh clone matched all 213 published files byte for byte. Its frozen installation, application tests, TypeScript check and reviewer tour also passed. The deck opened successfully in native Microsoft PowerPoint, with editable tables and speaker notes. The matching PDF was exported locally through PowerPoint and visually checked. This follow-up changes documentation and PDF packaging only; model/source code is unchanged.
